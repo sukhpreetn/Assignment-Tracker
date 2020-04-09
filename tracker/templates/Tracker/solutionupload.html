@@ -1,0 +1,24 @@
+{% extends 'tracker/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Please upload   as  <i> "StudentName_AssignmentTitle" e.g "abc_Grade1_math" </i> </li>
+    </ol>
+  </nav>
+  <h2 class="mb-3">Add a new assignment</h2>
+  <div class="row">
+    <div class="col-md-6 col-sm-8 col-12">
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="file" name="document">
+        <button type="submit" class="btn btn-success">Upload</button>
+      </form>
+      <p></p>
+    </div>
+  </div>
+
+{% endblock %}

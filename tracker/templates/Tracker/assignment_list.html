@@ -1,0 +1,38 @@
+{% extends 'tracker/base.html' %}
+{% block content %}
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">My Assigments</li>
+    </ol>
+  </nav>
+  <h2 class="mb-3">My Assignments</h2>
+   <a href="{% url 'tracker:assignment_add' %}" class="btn btn-primary mb-3" role="button">Add quiz</a>
+  <div class="card">
+    <table class="table mb-0">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>File</th>
+          <th>Due Date</th>
+          <th>File Path </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for assignment in assignments %}
+          <tr>
+            <td class="align-middle">{{ assignment.title }}</td>
+            <td class="align-middle">{{ assignment.filename }}</td>
+            <td class="align-middle">{{ assignment.duedate }}</td>
+            <td class="align-middle"><a style="color: #8C001A" href="/media/{{ assignment.filename }}">/media/{{ assignment.filename }}</td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td class="bg-light text-center font-italic" colspan="5">You haven't created any assignment yet.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
