@@ -7,7 +7,7 @@ beautifulsoup4==4.8.2
 blessed==1.17.2
 blog==1.0.1
 botocore==1.14.17
-bottle==0.12.18
+bottle==0.12.19
 cached-property==1.5.1
 cement==2.8.2
 certifi==2019.11.28
